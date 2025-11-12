@@ -5,11 +5,10 @@ import multer from '../middleware/multer-config.js';
 
 const stuffRoutes = express.Router();
 
-stuffRoutes.get('/', auth,stuffCtrl.getAllThings);
+stuffRoutes.get('/', stuffCtrl.getAllThings);
 stuffRoutes.post('/', auth, multer, stuffCtrl.createThing);
 stuffRoutes.get('/:id', auth, stuffCtrl.getOneThing);
 stuffRoutes.put('/:id', auth, stuffCtrl.modifyThing);
 stuffRoutes.delete('/:id', auth, stuffCtrl.deleteThing);
-
 
 export default stuffRoutes;
