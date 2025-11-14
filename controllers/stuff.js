@@ -3,21 +3,21 @@ import Thing from '../models/thing.js';
 
 export const createThing = async (req, res, next) => {
   try {
-    // Si tu utilises l’upload d’image (ex: avec Multer)
+    
     let imageUrl = null;
 
     if (req.file) {
       imageUrl = `${req.protocol}://${req.get('host')}/images/${req.file.filename}`;
     }
 
-    // Créer un nouvel objet à enregistrer dans la base PostgreSQL
+    
     const thingData = {
       ...req.body,
-      userId: req.auth.userId, // récupéré depuis le token JWT
+      userId: req.auth.userId, 
       imageUrl: imageUrl,
     };
 
-    // Création dans la base
+    
     const thing = await Thing.create(thingData);
 
     res.status(201).json({

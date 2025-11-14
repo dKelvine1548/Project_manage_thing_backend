@@ -24,7 +24,7 @@ const Thing = sequelize.define('Thing', {
   }
 }, {
   tableName: 'Thing',
-  timestamps: true // Ajoute createdAt et updatedAt automatiquement
+  timestamps: true 
 });
 
 export default Thing;
